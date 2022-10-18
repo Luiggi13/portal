@@ -1,0 +1,16 @@
+@import '../../theme/partials/colors';
+.alert {
+    background-color: $color-red;
+    border-radius: .25rem;
+    border: 1px solid transparent;
+    height: 45px;
+    left: 0;
+    margin: 0 auto;
+    padding: .6rem 1.25rem;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 10px;
+    width: 50%;
+    z-index: 9999;
+}

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
 import { PlaceHolderService } from './core/services/place-holder.service';
+import { AlertModule } from './shared/alert/alert.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PlaceHolderService } from './core/services/place-holder.service';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AlertModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },

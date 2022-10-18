@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ErrorFormService, PlaceHolderService } from 'src/app/core/services';
+import { AlertService, ErrorFormService, PlaceHolderService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-form-recovery',
@@ -15,6 +15,7 @@ export class FormRecoveryComponent {
   constructor(
     private fb: FormBuilder,
     private srv: PlaceHolderService,
+    public alertService: AlertService,
     public errorFormService: ErrorFormService
   ) {
     this.form = fb.group<any>({
@@ -36,16 +37,16 @@ export class FormRecoveryComponent {
     if (this.form.invalid) {
       if(this.f['password'].value !== this.f['validator_password'].value) {
         this.form.invalid.valueOf();
-        // return this.alertService.error('Password and Confirmed Password must match!')
+        return this.alertService.error('Password and Confirmed Password must match!')
       }
         return;
     }
   }
   onSubmit() {
+    this.isSamePassword();
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
-    this.isSamePassword();
   }
 }
