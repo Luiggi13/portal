@@ -1,0 +1,123 @@
+$color-font-primary: #062118;
+$color-font-secondary: #95a8a9;
+$color-font-tertiary: #dce7e2;
+
+$color-container-background: #f4f8f5;
+
+$color-neutral: #5c6369;
+$color-grey: #62747d;
+$color-blue: #2460ff;
+$color-blue-2: #0066ff;
+$color-green: #51d4a4;
+$color-green-2: #009e10;
+$color-green-3: #77d0a7;
+$color-red: #ff6753;
+$color-red-1: #f94c00;
+$color-orange: #ffa755;
+$color-orange-2: #f89d00;
+$color-yellow-1: #efba3a;
+$color-yellow-2: #fff0cb;
+$color-yellow-3: #f4f8f5;
+$color-purple: #5400ff;
+$color-brown: #815908;
+$color-lightblue: #077e8b;
+$color-lightblue-2: #08b8cc;
+$color-lightgreen: #77cc08;
+$color-lightgreen-2: #b3cc08;
+$color-lightgreen-3: #e7f7f0;
+
+$color-green-back: #e3f8f0;
+$color-grey-back: #dce7e2;
+$color-neutral-back: #e4ebe8;
+$color-blue-back: #dce5ff;
+$color-red-back: #ffcec8;
+$color-yellow-back: #fff0cb;
+$color-purple-back: #ceccfe;
+
+$color-blue-progress-bar: #2360ff;
+
+$color-red-light: rgba(255,103,83,.16);
+$color-lightblue-back: rgba(7, 126, 139, 0.16);
+$color-lightblue-back-2: rgba(8, 184, 204, 0.16);
+$color-lightgreen-back: rgba(119, 204, 8, 0.16);
+$color-lightgreen-back-2: rgba(179, 204, 8, 0.16);
+$color-orange-back-2: rgba(249, 76, 0, 0.16);
+$color-orange-back-3: rgba(255, 167, 85, 0.16);
+$color-yellow-back-2: rgba(248, 157, 0, 0.16);
+$color-blue-back-2: rgba(0, 102, 255, 0.16);
+$color-green-back-2: rgba(0, 158, 16, 0.16);
+$color-purple-back-2: rgba(84, 0, 255, 0.16);
+$color-brown-back-2: rgba(129, 89, 8, 0.16);
+
+$color-error: $color-red;
+$color-warn: $color-orange;
+
+$color-state-new: $color-blue;
+$color-state-new-back: $color-blue-back;
+$color-state-closed: $color-neutral;
+$color-state-closed-back: $color-neutral-back;
+$color-state-other: $color-green;
+$color-state-other-back: $color-green-back;
+
+.color-secondary {
+  color: $color-font-secondary;
+}
+
+.color-tertiary {
+  color: $color-font-tertiary;
+}
+
+.color-category-purple {
+  color: $color-purple;
+  background-color: $color-purple-back-2;
+}
+
+.color-category-yellow {
+  color: $color-orange-2;
+  background-color: $color-yellow-back-2;
+}
+
+.color-category-blue {
+  color: $color-blue-2;
+  background-color: $color-blue-back-2;
+}
+
+.color-category-brown {
+  color: $color-brown;
+  background-color: $color-brown-back-2;
+}
+
+.color-category-red {
+  color: $color-red-1;
+  background-color: $color-orange-back-2;
+}
+
+.color-category-green {
+  color: $color-green-2;
+  background-color: $color-green-back-2;
+}
+
+.color-category-light-green {
+  color: $color-green-3;
+  background-color: $color-lightgreen-3;
+}
+
+.color-category-bianual {
+  background-color: $color-lightblue-back;
+  color: $color-lightblue;
+}
+
+.color-category-anual {
+  background-color: $color-lightblue-back-2;
+  color: $color-lightblue-2;
+}
+
+.color-category-monthly {
+  background-color: $color-lightgreen-back-2;
+  color: $color-lightgreen;
+}
+
+.color-category-weekly {
+  background-color: $color-lightgreen-back-2;
+  color: $color-lightgreen-2;
+}

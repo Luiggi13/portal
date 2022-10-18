@@ -1,0 +1,24 @@
+@import './colors';
+
+.invalid-feedback {
+  position: absolute;
+  // bottom: -30px;
+  // new properties to discuss with the team
+  bottom: 20%;
+  right: 2%;
+}
+
+.invalid-container {
+  width: 100%;
+  height: auto;
+  color: $color-error;
+  font-size: .785em;
+  display: block;
+}
+
+.is-invalid {
+  &.form-validator{
+    color: $color-error;
+    border-color: $color-error;
+  }
+}

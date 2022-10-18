@@ -1,0 +1,36 @@
+<form [formGroup]="form" class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-1" (ngSubmit)="onSubmit()" novalidate>
+    <div class="relative mb-5">
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Usuario *</label>
+        <input type="text" placeholder="Schwarz username"
+            class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+            [ngClass]="errorFormService.conditionalClass(submitted, f['username'].errors)"
+            formControlName="username" required />
+        <div class="invalid-feedback" *ngIf="submitted && f['username'].errors">
+            <div class="invalid-container">
+                <span>Username is required</span>
+            </div>
+        </div>
+    </div>
+    <div class="relative mb-5">
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password *</label>
+        <input type="password" placeholder="Your password"
+            class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+            [ngClass]="errorFormService.conditionalClass(submitted, f['password'].errors)"
+            formControlName="password" required />
+        <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+            <div class="invalid-container">
+                <span>Password is required</span>
+            </div>
+        </div>
+    </div>
+    <button
+        class="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+        <span>Log In </span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd" />
+        </svg>
+    </button>
+</form>
