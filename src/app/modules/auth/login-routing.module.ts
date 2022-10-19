@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PlaceHolderService } from 'src/app/core/services/place-holder.service';
 import { AuthComponent } from './auth.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NgModule } from '@angular/core';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '',

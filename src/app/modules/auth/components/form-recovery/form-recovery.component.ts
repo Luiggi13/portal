@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertService, ErrorFormService, PlaceHolderService } from 'src/app/core/services';
+import { AlertService, ErrorFormService } from 'src/app/core/services';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form-recovery',
@@ -14,7 +14,6 @@ export class FormRecoveryComponent {
 
   constructor(
     private fb: FormBuilder,
-    private srv: PlaceHolderService,
     public alertService: AlertService,
     public errorFormService: ErrorFormService
   ) {
@@ -43,10 +42,10 @@ export class FormRecoveryComponent {
     }
   }
   onSubmit() {
-    this.isSamePassword();
     this.submitted = true;
     if (this.form.invalid) {
       return;
     }
+    this.isSamePassword();
   }
 }

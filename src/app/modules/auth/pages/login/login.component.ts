@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PlaceHolderService } from 'src/app/core/services/place-holder.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
