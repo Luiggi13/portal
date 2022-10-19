@@ -31,7 +31,7 @@ export class AlertComponent implements OnInit, OnDestroy {
                 this.message = message;
                 setTimeout(() => {
                     this.message = null;
-                }, 2000);
+                }, 3000);
             }
         );
     }

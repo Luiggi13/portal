@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LoginRoutingModule } from './login-routing.module';
+import { AuthRoutingModule } from './auth-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,11 +25,11 @@ import { AuthComponent } from './auth.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    LoginRoutingModule
+    AuthRoutingModule
   ],
   providers: [
     HttpClientModule,
     PlaceHolderService
   ]
 })
-export class LoginModule { }
+export class AuthModule { }

@@ -8,11 +8,16 @@ const routes: Routes = [
   { path: '',
     component: AuthComponent,
     children: [
-      { path: 'login',
+      { path: '',
+        pathMatch: 'full',
         component: LoginComponent
       },
       { path: 'recovery',
+        pathMatch: 'full',
         component: RecoveryComponent
+      },
+      { path: '*',
+        redirectTo: '/auth'
       }
     ]
   }
@@ -22,4 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LoginRoutingModule { }
+export class AuthRoutingModule { }
