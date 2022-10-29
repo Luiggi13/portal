@@ -11,7 +11,6 @@ export class FormLoginComponent {
 
   form: FormGroup;
   submitted = false;
-
   constructor(private fb: FormBuilder, public errorFormService: ErrorFormService) {
     this.form = fb.group({
       username: ['', Validators.nullValidator],

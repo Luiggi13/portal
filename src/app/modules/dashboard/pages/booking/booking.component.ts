@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ErrorFormService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-booking',
@@ -32,11 +34,31 @@ export class BookingComponent implements OnInit{
   blankdays = [] as number[];
   selectedDay!: number;
   selectedClass = 'is-selected';
+  roomSelected = 'videowall';
+  form: FormGroup;
+  submitted = false;
 
-  constructor() {}
+  constructor(private fb: FormBuilder, public errorFormService: ErrorFormService) {
+    this.form = this.fb.group({
+      comment: [null, Validators.required]
+    })
+  }
+  
   ngOnInit(): void {
     this.initDate();
     this.getNoOfDays();
+  }
+
+  get f() { return this.form.controls; }
+
+  onSubmit() {
+    console.log(this.form.value);
+    console.log(this.form.valid);
+    
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
   }
 
   initDate() {
@@ -44,6 +66,7 @@ export class BookingComponent implements OnInit{
     this.month = today.getMonth();
     this.year = today.getFullYear();
     this.datepickerValue = new Date(this.year, this.month, today.getDate()).toDateString();
+    this.selectedDay = 0;
   }
 
   isToday(date: any) {
@@ -88,5 +111,10 @@ export class BookingComponent implements OnInit{
     if ( d === 6 || d === 0 ) return 0
     
     return numberDay;
+  }
+
+  changeRoom(event: Event ) {
+    const room = (event.target as HTMLInputElement).value
+    this.roomSelected = room.split(' -')[0].toLowerCase();
   }
 }

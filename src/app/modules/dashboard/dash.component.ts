@@ -23,10 +23,15 @@ export class DashComponent {
   classSubmenu = 'hidden';
   currentRoute: string;
   isSubmenuVisible = false;
+  isSidebarVisible = true;
   submenu: SubMenu[] = [
     {
       text: 'Logout',
       fn: 'setLogin'
+    },
+    {
+      text: 'Hide Sidebar',
+      fn: 'statusSidebar'
     }
   ]
   menu: ItemMenu[] = [
@@ -68,9 +73,16 @@ export class DashComponent {
         this.setLogin();
         this.visibilitySubMenu();
         break;
+      case 'statusSidebar':
+        this.statusSidebar();
+        break;
     
       default:
         break;
     }
+  }
+
+  statusSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible
   }
 }

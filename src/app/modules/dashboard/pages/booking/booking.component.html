@@ -1,33 +1,17 @@
 <div class="flex justify-start h-full">
-    <div class="antialiased sans-serif w-1/2">
+    <div class="antialiased sans-serif transition-all" [ngClass]="{
+        'w-full': selectedDay < 1,
+        'w-1/2': selectedDay > 0
+    }">
         <div class="h-full">
-            <div class="container px-4 py-2 md:py-10">
+            <div class="w-full px-4 py-2 md:py-10">
                 <div class="mb-5 w-full">
-                    <label for="datepicker" class="text-2xl text-center font-bold mb-1 text-gray-700 block">Calendario de reservas</label>
-                    <input type="hidden" name="date" x-ref="date" />
                     <div class="relative">
-                        <!-- <input type="text" readonly [(ngModel)]="datepickerValue"
-                            (click)="showDatepicker = !showDatepicker" (keydown.escape)="showDatepicker = false" class="
-                    w-full
-                    pl-4
-                    pr-10
-                    py-3
-                    leading-none
-                    rounded-lg
-                    shadow-sm
-                    focus:outline-none focus:shadow-outline
-                    text-gray-600
-                    font-medium" placeholder="Select date" /> -->
-
-                        <!-- <div class="absolute top-0 right-0 px-3 py-2">
-                            <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </div> -->
-
-                        <div class="bg-white mt-5 rounded-lg shadow p-4 top-0 left-0 w-full mb-5"
-                            [hidden]="!showDatepicker" (keydown.away)="showDatepicker = false">
+                        <div class="bg-white mt-2 rounded-lg shadow p-4 top-0 left-0 w-full mb-5"
+                        [hidden]="!showDatepicker" (keydown.away)="showDatepicker = false">
+                        <label for="datepicker" class="text-2xl text-center font-bold mb-1 text-gray-700 block">Calendario
+                            de reservas</label>
+                        <input type="hidden" name="date" x-ref="date" />
                             <div class="flex justify-between items-center mb-2">
                                 <div>
                                     <span class="text-lg font-bold text-gray-800">{{ MONTH_NAMES[month] }}</span>
@@ -108,35 +92,102 @@
                                 </ng-container>
                             </div>
                         </div>
-                        <div class="flex flex-wrap justify-items-start">
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-blue-100 text-blue-600 rounded-md">Disponible</span>
-                            </a>
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-green-400 text-white rounded-md">Aprobada</span>
-                            </a>
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-yellow-400 text-white rounded-md">Pendiente</span>
-                            </a>
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-red-400 text-white rounded-md">Denegada</span>
-                            </a>
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-orange-400 text-white rounded-md">Asiento no disponible</span>
-                            </a>
-                            <a class="flex mr-3 mb-2">
-                                <span class="py-1 px-2 bg-purple-400 text-white rounded-md">Contacto emergencia</span>
-                            </a>
-                            <a class="flex mb-2">
-                                <span class="py-1 px-2 bg-pink-700 text-white rounded-md">No laborable</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flex justify-center items-center w-1/2">
-        <span class="text-xl">Por favor seleccione una fecha</span>
+    <div class="antialiased sans-serif w-1/2 transition-all" *ngIf="selectedDay > 0">
+        <div class="h-full">
+            <div class="container px-4 py-2 md:py-10">
+                <div class="mb-5 w-full">
+                    <div class="relative">
+                        <div class="bg-white mt-2 rounded-lg shadow p-4 top-0 left-0 w-full mb-5">
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <h1 class="text-2xl text-center font-bold mb-1 text-gray-700 block">
+                                    <span class="capitalize">oficina {{roomSelected}}</span>
+                                </h1>
+                                <div class="flex flex-col">
+                                    <div class="w-full">
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="booking-location">
+                                            Su reserva
+                                        </label>
+                                        <div class="relative">
+                                            <select (change)="changeRoom($event)"
+                                                class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="booking-location">
+                                                <option>Videowall - Zona disponible</option>
+                                                <option>Bergara - Zona disponible</option>
+                                                <option>Lorem - Zona disponible</option>
+                                            </select>
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full flex items-center justify-center maps my-4">
+                                            <img class="md:w-72"
+                                                src='{{"assets/images/locations/" + roomSelected + ".png"}}'
+                                                alt="{{roomSelected}}" />
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-5">
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="supervisor-location">
+                                            Supervisor
+                                        </label>
+                                        <div class="relative">
+                                            <select
+                                                class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="supervisor-location">
+                                                <option>Anna Codina</option>
+                                                <option>Christine Looser</option>
+                                                <option>Francisco Chacón</option>
+                                                <option>Pau Almirall</option>
+                                            </select>
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-5">
+                                        <label
+                                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                            for="comment-location">
+                                            Comentario {{form.valid}}
+                                        </label>
+                                        <div class="relative">
+                                            <textarea formControlName="comment" required
+                                                class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none h-32"
+                                                id="comment-location" placeholder="Comentario"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="w-full mt-5">
+                                        <button class="w-full shadow text-white font-bold py-2 px-4 rounded" [ngClass]="{
+                                                'cursor-pointer bg-blue-500 hover:bg-blue-300': form.valid,
+                                                'cursor-not-allowed bg-gray-300': !form.valid
+                                            }" type="submit" [disabled]="form.invalid" (click)="onSubmit()">
+                                            Crear reserva
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,7 +1,10 @@
 <div>
     <section class="bg-white dark:bg-green-400">
         <div class="flex justify-center min-h-screen">
-            <div class="hidden bg-cover lg:block lg:w-2/5 bg-white relative">
+            <div class="bg-cover transition-all bg-white relative" [ngClass]="{
+                'visible': isSidebarVisible,
+                'hidden': !isSidebarVisible
+            }">
                 <div class="flex justify-center items-center h-20 bg-white pt-5">
                     <img alt="Logo" class="logo" src="assets/images/svg/lobbi.svg" />
                 </div>
@@ -35,7 +38,7 @@
                 </div>
                 <div class="flex justify-start min-h-max flex-col menu">
                     <ul class="p-12 pt-5 pb-5">
-                        <li class="w-ful rounded-md p-2 text-white items-center flex mb-5 hover:bg-gray-200" *ngFor="let item of menu" [routerLink]="[item.to]" routerLinkActive="bg-gray-200">
+                        <li class="cursor-pointer rounded-md p-2 text-white items-center flex mb-5 hover:bg-gray-200" *ngFor="let item of menu" [routerLink]="[item.to]" routerLinkActive="bg-gray-200">
                             <a class="w-full text-black items-center flex cursor-pointer">
                                 <i-feather name="{{item.icon}}" class="small mr-3"></i-feather>
                                 <span class="font-bold">{{ item.text }}</span>
@@ -50,7 +53,10 @@
                 </ul> -->
                 <!-- <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button> -->
             </div>
-            <div class="flex items-center w-full p-8 mx-auto lg:px-12 bg-blue-200 rounded-l-3xl">
+            <div class="flex items-center w-full p-8 mx-auto lg:px-12 bg-blue-200 transition-all" [ngClass]="{
+                'rounded-l-3xl': isSidebarVisible,
+                'rounded-none': !isSidebarVisible
+            }">
                 <div class="w-full h-full">
                     <router-outlet></router-outlet>
                 </div>
