@@ -1,2 +1,7 @@
-// import { SomeComponentToShare } from "../route/to/component.ts";
-// export * from "../route/to/component.ts";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+
+export const components: any[] = [
+  SidebarComponent
+];
+
+export * from "./sidebar/sidebar.component";

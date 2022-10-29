@@ -1,0 +1,60 @@
+<div>
+    <section class="bg-white dark:bg-green-400">
+        <div class="flex justify-center min-h-screen">
+            <div class="hidden bg-cover lg:block lg:w-2/5 bg-white relative">
+                <div class="flex justify-center items-center h-20 bg-white pt-5">
+                    <img alt="Logo" class="logo" src="assets/images/svg/lobbi.svg" />
+                </div>
+                <div class="flex justify-center items-center h-64 flex-col user-profile relative">
+                    <div class="flex rounded-full h-36 w-36 justify-center items-center p-2 shadow-xl bg-white relative">
+                        <img alt="Logo" src="assets/images/users/user1.jpg" class="rounded-full shadow-xl" [ngClass]="classLogged" />
+                        <div class="flex rounded-full h-8 w-8 overflow-clip justify-center items-center p-2 shadow-xl bg-white absolute -bottom-1 right-2">
+                            <a (click)="visibilitySubMenu()" class="small cursor-pointer">
+                                <i-feather name="power" class="small"></i-feather>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="font-bold mt-5">Christian Llansola</h3>
+                    <h4 class="text-black/[.50]">christian.llansola@mail.schwarz</h4>
+                        <div id="dropdown" class="z-10 w-44 bg-white rounded shadow dark:bg-gray-700 absolute -bottom-20" [ngClass]="classSubmenu">
+                            <ul class="languages py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                <li>
+                                    <a href="#" class="language w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">English</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Spanish</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="language w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">German</a>
+                                </li>
+                                <li *ngFor="let item of submenu">
+                                    <a (click)="myFn(item.fn)" class="language w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ item.text }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                <div class="flex justify-start min-h-max flex-col menu">
+                    <ul class="p-12 pt-5 pb-5">
+                        <li class="w-ful rounded-md p-2 text-white items-center flex mb-5 hover:bg-gray-200" *ngFor="let item of menu" [routerLink]="[item.to]" routerLinkActive="bg-gray-200">
+                            <a class="w-full text-black items-center flex cursor-pointer">
+                                <i-feather name="{{item.icon}}" class="small mr-3"></i-feather>
+                                <span class="font-bold">{{ item.text }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <ul class="w-full absolute bottom-10 right-0 pl-12 flex flex-row languages">
+                    <li class="flex flex-row cursor-pointer font-bold">English <span class="font-normal ml-2 mr-2 cursor-default">|</span></li>
+                    <li class="flex flex-row">Español <span class="ml-2 mr-2">|</span></li>
+                    <li class="flex flex-row">Alemán</li>
+                </ul> -->
+                <!-- <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button> -->
+            </div>
+            <div class="flex items-center w-full p-8 mx-auto lg:px-12 bg-blue-200 rounded-l-3xl">
+                <div class="w-full h-full">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

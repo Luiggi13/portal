@@ -4,6 +4,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { SidebarComponent } from './sidebar/sidebar.component';
+import * as shared from "./index";
 
 @NgModule({
   imports: [
@@ -12,13 +14,13 @@ import { RouterModule } from "@angular/router";
     FormsModule,
     RouterModule
   ],
-  // declarations: [...shared.components],
+  declarations: [...shared.components],
   exports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    // ...shared.components,
+    ...shared.components,
   ],
   entryComponents: [],
 })

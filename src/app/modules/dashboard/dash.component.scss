@@ -1,0 +1,74 @@
+::ng-deep {
+  app-login, app-recovery,app-dash {
+    width: 80%;
+  }
+}
+
+.bg-cover {
+  width: 20%;
+}
+.rounded-l-3xl {
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+
+img {
+  &.logo{
+    height: 80%;
+  }
+}
+
+.small {
+  height: 18px;
+  width: 18px;
+}
+.user-profile{
+  a:not(.language) {
+    @extend .small;
+    i-feather {
+      @extend .small;
+      svg {
+        @extend .small;
+      }
+    }
+  }
+}
+
+.menu {
+  ul {
+    li {
+      @extend .transition-3;
+    }
+  }
+}
+
+
+  ul {
+    &.languages {
+      li {
+        a {
+          cursor: pointer;
+          width: 100%;
+        }
+      }
+    }
+    li {
+      a {
+        width: max-content;
+        height: max-content;
+      }
+    }
+  }
+
+
+.shadow-lime-400,
+.shadow-red-400 {
+  @extend .transition-5;
+}
+
+.transition-5 {
+  transition: all .5s ease-in;
+}
+.transition-3 {
+  transition: all .3s ease-in;
+}
