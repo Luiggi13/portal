@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
-import { Camera, Columns, Heart, Github, Settings, Power } from 'angular-feather/icons';
+import { Camera, Columns, Heart, Github, Settings, Power, Menu } from 'angular-feather/icons';
 
 const icons = {
   Camera,
@@ -8,7 +8,8 @@ const icons = {
   Github,
   Settings,
   Columns,
-  Power
+  Power,
+  Menu
 };
 
 @NgModule({

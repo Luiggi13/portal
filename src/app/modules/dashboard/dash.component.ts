@@ -75,6 +75,7 @@ export class DashComponent {
         break;
       case 'statusSidebar':
         this.statusSidebar();
+        this.visibilitySubMenu();
         break;
     
       default:
@@ -83,6 +84,6 @@ export class DashComponent {
   }
 
   statusSidebar() {
-    this.isSidebarVisible = !this.isSidebarVisible
+    this.isSidebarVisible = !this.isSidebarVisible;
   }
 }

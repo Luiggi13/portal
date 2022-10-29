@@ -17,6 +17,12 @@ img {
     height: 80%;
   }
 }
+a.hamburguer {
+  i-feather{
+    height: 26px;
+    width: 26px;
+  }
+}
 
 .small {
   height: 18px;
@@ -54,7 +60,7 @@ img {
     }
     li {
       a {
-        width: max-content;
+        width: 100%;
         height: max-content;
       }
     }

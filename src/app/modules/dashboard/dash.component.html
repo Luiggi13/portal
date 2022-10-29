@@ -1,25 +1,59 @@
 <div>
     <section class="bg-white dark:bg-green-400">
         <div class="flex justify-center min-h-screen">
-            <div class="bg-cover transition-all bg-white relative" [ngClass]="{
-                'visible': isSidebarVisible,
-                'hidden': !isSidebarVisible
+            <div class="transition-all bg-white relative" [ngClass]="{
+                'w-80': isSidebarVisible,
+                'w-24': !isSidebarVisible
             }">
-                <div class="flex justify-center items-center h-20 bg-white pt-5">
-                    <img alt="Logo" class="logo" src="assets/images/svg/lobbi.svg" />
+                <div class="flex justify-center items-center h-20 bg-white pt-5 relative">
+                    <img alt="Logo" [ngClass]="{
+                        'logo': isSidebarVisible,
+                        'h-4': !isSidebarVisible
+                    }" src="assets/images/svg/lobbi.svg" />
+                    <a (click)="statusSidebar()" class="cursor-pointer absolute hamburger"
+                    [ngClass]="{
+                        'right-3 bottom-2': isSidebarVisible,
+                        'right-auto top-1': !isSidebarVisible
+                    }">
+                        <i-feather name="menu"></i-feather>
+                    </a>
                 </div>
-                <div class="flex justify-center items-center h-64 flex-col user-profile relative">
-                    <div class="flex rounded-full h-36 w-36 justify-center items-center p-2 shadow-xl bg-white relative">
+                <div class="flex justify-center items-center flex-col user-profile relative"
+                [ngClass]="{
+                    'h-64 justify-center': isSidebarVisible,
+                    'h-28 justify-start': !isSidebarVisible
+                }">
+                    <div class="flex rounded-full justify-center items-center bg-white relative"
+                    [ngClass]="{
+                        'h-36 w-36 p-2 shadow-xl': isSidebarVisible,
+                        'h-16 w-16 p-1 shadow-md': !isSidebarVisible
+                    }">
                         <img alt="Logo" src="assets/images/users/user1.jpg" class="rounded-full shadow-xl" [ngClass]="classLogged" />
-                        <div class="flex rounded-full h-8 w-8 overflow-clip justify-center items-center p-2 shadow-xl bg-white absolute -bottom-1 right-2">
+                        <div class="flex rounded-full h-8 w-8 overflow-clip justify-center items-center bg-white absolute"
+                        [ngClass]="{
+                            '-bottom-1 right-2 p-2 shadow-xl': isSidebarVisible,
+                            '-bottom-5 right-4 p-1 shadow-sm': !isSidebarVisible
+                        }">
                             <a (click)="visibilitySubMenu()" class="small cursor-pointer">
                                 <i-feather name="power" class="small"></i-feather>
                             </a>
                         </div>
                     </div>
-                    <h3 class="font-bold mt-5">Christian Llansola</h3>
-                    <h4 class="text-black/[.50]">christian.llansola@mail.schwarz</h4>
-                        <div id="dropdown" class="z-10 w-44 bg-white rounded shadow dark:bg-gray-700 absolute -bottom-20" [ngClass]="classSubmenu">
+                    <h3 [ngClass]="{
+                        'visible': isSidebarVisible,
+                        'hidden': !isSidebarVisible
+                    }" class="font-bold mt-5">Christian Llansola</h3>
+                    <h4 [ngClass]="{
+                        'visible': isSidebarVisible,
+                        'hidden': !isSidebarVisible
+                    }" class="text-black/[.50]">christian.llansola@mail.schwarz</h4>
+                        <div id="dropdown" class="z-10 w-44 bg-white rounded shadow dark:bg-gray-700 absolute" 
+                        [ngClass]="{
+                            'visible': isSubmenuVisible,
+                            'hidden': !isSubmenuVisible,
+                            '-bottom-20': isSidebarVisible,
+                            '-bottom-7 left-4': !isSidebarVisible
+                        }">
                             <ul class="languages py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                                 <li>
                                     <a href="#" class="language w-full block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">English</a>
@@ -37,11 +71,25 @@
                         </div>
                 </div>
                 <div class="flex justify-start min-h-max flex-col menu">
-                    <ul class="p-12 pt-5 pb-5">
+                    <ul
+                    [ngClass]="{
+                        'p-12 pt-5 pb-5': isSidebarVisible,
+                        'p-1 pt-5 pb-5': !isSidebarVisible
+                    }">
                         <li class="cursor-pointer rounded-md p-2 text-white items-center flex mb-5 hover:bg-gray-200" *ngFor="let item of menu" [routerLink]="[item.to]" routerLinkActive="bg-gray-200">
-                            <a class="w-full text-black items-center flex cursor-pointer">
-                                <i-feather name="{{item.icon}}" class="small mr-3"></i-feather>
-                                <span class="font-bold">{{ item.text }}</span>
+                            <a class="w-full text-black items-center flex cursor-pointer"
+                            [ngClass]="{
+                                'justify-center': !isSidebarVisible
+                            }" [title]="item.text">
+                                <i-feather name="{{item.icon}}" class="small"
+                                [ngClass]="{
+                                    'mr-3': isSidebarVisible
+                                }"></i-feather>
+                                <span class="font-bold"
+                                [ngClass]="{
+                                    'visible': isSidebarVisible,
+                                    'hidden': !isSidebarVisible
+                                }">{{ item.text }}</span>
                             </a>
                         </li>
                     </ul>
