@@ -28,10 +28,6 @@ export class DashComponent {
     {
       text: 'Logout',
       fn: 'setLogin'
-    },
-    {
-      text: 'Hide Sidebar',
-      fn: 'statusSidebar'
     }
   ]
   menu: ItemMenu[] = [

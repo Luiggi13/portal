@@ -8,6 +8,7 @@ import { ErrorFormService } from 'src/app/core/services';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit{
+  loading = false;
   MONTH_NAMES = [
     'Enero',
     'Febrero',
@@ -52,9 +53,6 @@ export class BookingComponent implements OnInit{
   get f() { return this.form.controls; }
 
   onSubmit() {
-    console.log(this.form.value);
-    console.log(this.form.valid);
-    
     this.submitted = true;
     if (this.form.invalid) {
       return;
@@ -83,24 +81,32 @@ export class BookingComponent implements OnInit{
     this.selectedDay === date ? this.selectedDay = 0 : this.selectedDay = date;
   }
 
+  later(delay:number,direction: string) {
+    this.loading = true;
+    setTimeout(() => {
+      if(direction === 'prev') this.month--;
+      if(direction === 'next') this.month++;
+      this.getNoOfDays();
+    }, delay);
+  }
   getNoOfDays() {
     const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-
+    
     // find where to start calendar day of week
     let dayOfWeek = new Date(this.year, this.month).getDay();
-    console.log(dayOfWeek)
     let blankdaysArray = [];
     for (var i = 2; i <= dayOfWeek; i++) {
       blankdaysArray.push(i)
     }
-
+    
     let daysArray: number[] = [];
     for (var i = 1; i <= daysInMonth; i++) {
       daysArray.push(i);
     }
-
+    
     this.blankdays = blankdaysArray;
     this.no_of_days = daysArray;
+    this.loading = false;
     
   }
 

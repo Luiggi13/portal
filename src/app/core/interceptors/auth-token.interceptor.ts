@@ -21,8 +21,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(req.url);
-    
     if (req.url.startsWith("/api")) {
       const urlFinal = req.url.split('/api')[1]
       req = req.clone({ url: environment.url + urlFinal });

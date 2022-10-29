@@ -17,7 +17,6 @@ export class AlertService {
     }
 
     error(message: string) {
-        console.log('mensaje sserv',message)
         this.subject.next({ type: 'error', text: message });
     }
 

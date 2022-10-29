@@ -19,7 +19,6 @@ export class AlertComponent implements OnInit, OnDestroy {
         this.subscription = this.alertService.OnAlert()
             .pipe(throttleTime(2000))
             .subscribe(message => {
-                console.log('mensaje componente',message)
                 switch (message && message.type) {
                     case 'success':
                         message.cssClass = 'alert-success';
