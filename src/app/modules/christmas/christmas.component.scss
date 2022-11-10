@@ -1,0 +1,61 @@
+section {
+  &.bg-christmas {
+    background-color: rgb(25 ,43 ,45);
+  }
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 6rem;
+}
+.bg-christmas {
+  background-color: rgb(25 ,43 ,45);
+  background-image: url('../../../assets/images/png/bg-xmas-20.png');
+}
+
+.date-countdown-container {
+  h2 {
+    background: url(https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/bg.png) no-repeat center center;
+    background-size: auto;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    &.day {
+      &:before {
+        content: 'Días';
+        @extend .font-counter;
+      }
+    }
+    &.hour {
+      &:before {
+        content: 'Horas';
+        @extend .font-counter;
+      }
+    }
+    &.minute {
+      &:before {
+        content: 'Minutos';
+        @extend .font-counter;
+      }
+    }
+    &.second {
+      &:before {
+        content: 'Segundos';
+        @extend .font-counter;
+      }
+    }
+  }
+}
+
+.font-counter {
+  position: absolute;
+  top: -15px;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+img {
+  &.xmas-right {
+    margin: auto;
+  }
+}

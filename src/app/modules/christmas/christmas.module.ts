@@ -4,24 +4,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceHolderService } from 'src/app/core/services/place-holder.service';
-
-import { DashboardRoutingModule } from './dash-routing.module';
-import { BookingComponent } from './pages/booking/booking.component';
-import { DashComponent } from './dash.component';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ChristmasComponent } from './christmas.component';
+import { ChristmasRoutingModule } from './christmas-routing.module';
 
 
 @NgModule({
   declarations: [
-    BookingComponent,
-    DashComponent,
+ChristmasComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardRoutingModule,
+    ChristmasRoutingModule,
     IconsModule,
     SharedModule
   ],
@@ -30,4 +27,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
     PlaceHolderService
   ]
 })
-export class DashModule { }
+export class ChristmasModule { }
