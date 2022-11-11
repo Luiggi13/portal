@@ -1,9 +1,14 @@
-section {
-  &.bg-christmas {
-    background-color: rgb(25 ,43 ,45);
-  }
-}
 
+.bg-shapes {
+  background-image: url(../../../assets/images/png/bg-white.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+.bg-tl {
+  background-image: url(../../../assets/images/png/bg-top.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
 h1 {
   font-size: 6rem;
   line-height: 6rem;
