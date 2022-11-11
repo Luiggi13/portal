@@ -1,0 +1,31 @@
+<div class="flex flex-row justify-center min-h-screen items-center bg-christmas relative">
+        <div class="basis-4/12 p-36">
+          <img class="xmas-right" src="assets/images/png/adorno.png" alt="Merry Christmas" />
+            <h1 class="text-white text-center font-bold block w-full">
+                ENJOY THE
+                <span class="text-yellow-400 block">CHRISTMAS</span>
+                HOLIDAYS.
+            </h1>
+            <p class="text-white text-xl mt-4 mb-10">Qui cillum et excepteur proident do dolor labore duis nisi consequat. Ullamco incididunt quis ullamco esse voluptate incididunt.</p>
+            <div class="date-countdown-container flex flex-row">
+                <h2 class="day relative h-56 w-56 items-center text-white text-3xl font-bold">{{ endTime.days }}</h2>
+                <h2 class="hour relative h-56 w-56 items-center text-white text-3xl font-bold">{{ endTime.hours }}</h2>
+                <h2 class="minute relative h-56 w-56 items-center text-white text-3xl font-bold">{{ endTime.minutes }}</h2>
+                <h2 class="second relative h-56 w-56 items-center text-white text-3xl font-bold">{{ endTime.seconds }}</h2>
+            </div>
+        </div>
+        <div class="basis-8/12">
+            <img class="xmas-right" src="assets/images/png/tree.png" alt="Merry Christmas" />
+            <form>
+                <label class="block">
+                    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
+                      Email
+                    </span>
+                    <input type="email" name="email" class="mt-1 px-3 py-2 bg-green-500 border shadow-sm border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-slate-800 block w-full rounded-md sm:text-sm focus:ring-1 placeholder-white text-white" placeholder="you@example.com" />
+                  </label>
+                  <button type="button" class="bg-indigo-500 rounded-md p-3 w-full mt-2">
+                    Processing...
+                  </button>
+            </form>
+        </div>
+</div>

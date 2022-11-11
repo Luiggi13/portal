@@ -18,7 +18,7 @@ interface SubMenu {
   styleUrls: ['./dash.component.scss']
 })
 export class DashComponent {
-  isLogged = false;
+  isLogged = true;
   classLogged = 'shadow-red-400';
   classSubmenu = 'hidden';
   currentRoute: string;
@@ -52,12 +52,12 @@ export class DashComponent {
     this.isSubmenuVisible ? this.classSubmenu = 'visible': this.classSubmenu = 'hidden';
     this.currentRoute = this.router.url.split('/')[1];
   }
-  
+
   setLogin() {
     this.isLogged = !this.isLogged;
     this.isLogged ? this.classLogged = 'shadow-lime-400': this.classLogged = 'shadow-red-400';
   }
-  
+
   visibilitySubMenu() {
     this.isSubmenuVisible = !this.isSubmenuVisible;
     this.isSubmenuVisible ? this.classSubmenu = 'visible': this.classSubmenu = 'hidden';
@@ -73,7 +73,7 @@ export class DashComponent {
         this.statusSidebar();
         this.visibilitySubMenu();
         break;
-    
+
       default:
         break;
     }
