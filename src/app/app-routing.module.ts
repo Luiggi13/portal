@@ -15,7 +15,7 @@ const routes: Routes = [
   loadChildren: () => import('./modules/christmas2/christmas-new.module').then(m => m.ChristmasNewModule)
   },
   { path: '**',
-    redirectTo: 'auth'
+    redirectTo: 'christmas'
   },
 ];
 

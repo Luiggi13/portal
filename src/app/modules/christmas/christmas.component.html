@@ -1,7 +1,17 @@
-<div class="flex flex-row justify-center min-h-screen items-center bg-christmas relative">
-        <div class="basis-1/2 p-48">
+<div class="bg-christmas relative">
+  <div class="absolute w-1/2 top-0 ml-auto mr-auto bg-green-200 h-10 inset-0 rounded-b-md" *ngIf="showMessage" [ngClass]="{
+    'bg-red-300': isError,
+    'bg-green-200': !isError
+}">
+    <p class="flex flex-row justify-center h-10 items-center" [ngClass]="{
+      'text-red-900': isError,
+      'text-black': !isError
+  }"> {{ message }}</p>
+  </div>
+<div class="flex flex-row justify-center min-h-screen items-center snowBall relative" *ngIf="!isSubmited">
+        <div class="basis-1/2 p-40">
             <h1 class="text-white text-center font-bold block w-full">
-                ENJOY THE
+                ENJOY
                 <span class="text-yellow-400 block">CHRISTMAS</span>
                 HOLIDAYS
             </h1>
@@ -14,17 +24,33 @@
             </div>
         </div>
         <div class="basis-1/2 p-10">
-            <img class="md:w-4/6 xmas-right" src="assets/images/png/xmas.png" alt="Merry Christmas" />
-            <form class="w-2/3 mx-auto">
-              <label class="block">
+            <img (click)="changePage()" class="md:w-4/6 xmas-right" src="assets/images/png/xmas.png" alt="Merry Christmas" />
+            <form class="w-4/6 mx-auto relative" (ngSubmit)="submit()" [formGroup]="form">
+                <label class="block mb-5">
                   <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
                     Email
                   </span>
-                  <input type="email" name="email" class="mt-1 px-3 py-2 border shadow-sm border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-slate-800 block w-full rounded-md sm:text-sm focus:ring-1 placeholder-gray-500 text-gray-500" placeholder="you@mail.schwarz" />
+                  <input type="email" name="email" required formControlName="email" class="mt-1 px-3 py-2 border shadow-sm border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-slate-800 block w-full rounded-md sm:text-sm focus:ring-1 placeholder-gray-500 text-gray-500" placeholder="you@mail.schwarz" />
+                  <!-- <span class="flex justify-center rounded-md mt-3 w-full text-red-600 text-sm p-1 bg-gray-50" *ngIf="form.controls['email'].value !== null && form.controls['email'].touched">Email is required and must be valid. </span> -->
                 </label>
-                <button type="button" class="bg-indigo-500 rounded-md p-3 w-full mt-2 text-white">
+                <button [disabled]="!form.valid" (click)="submit()" type="button" class="bg-indigo-500 rounded-md p-3 w-full mt-2 text-white relative christmas-button">
                   Add me to the list
                 </button>
           </form>
         </div>
+  </div>
+  <div class="flex flex-row justify-center min-h-screen items-center snowBall relative" *ngIf="isSubmited">
+    <div class="basis-1/2">
+        <h1 class="text-white text-center font-bold block w-full uppercase thanks">
+            thank you for joining to
+            <span class="text-yellow-400 block">SGS
+              <span class="text-white"> secret santa</span>
+            </span>
+        </h1>
+        <p class="text-white text-xl mt-4 mb-10">Qui cillum et excepteur proident do dolor labore duis nisi consequat. Ullamco incididunt quis ullamco esse voluptate incididunt.</p>
+        <a (click)="back()" class="flex bg-indigo-500 rounded-md p-3 mt-2 text-white christmas-button w-1/2 mx-auto justify-center">
+          I would like to add more people to the list
+        </a>
+    </div>
+  </div>
 </div>

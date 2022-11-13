@@ -4,10 +4,22 @@
   background-position: bottom right;
   background-repeat: no-repeat;
 }
-.bg-tl {
+.tl:before {
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(../../../assets/images/png/bg-top.png);
   background-position: top left;
   background-repeat: no-repeat;
+}
+.bg-tl {
+  z-index: 1;
+  // background-image: url(../../../assets/images/png/bg-top.png);
+  // background-position: top left;
+  // background-repeat: no-repeat;
 }
 h1 {
   font-size: 6rem;
@@ -61,6 +73,7 @@ h1 {
 
 img {
   &.xmas-right {
+    cursor: pointer;
     margin: auto;
   }
 }

@@ -22,7 +22,7 @@ export class ChristmasNewComponent implements OnInit {
   minute = this.second * 60;
   hour = this.minute * 60;
   day = this.hour * 24;
-  constructor() {
+  constructor(private router: Router) {
     this.endTime = {
       days: '0',
       hours: '0',
@@ -61,4 +61,6 @@ export class ChristmasNewComponent implements OnInit {
 };
 
   setZeros = (value: string): string => value.length === 1 ? `0${value}` : value;
+  changePage = () => this.router.navigate(['/christmas']);
+
 }

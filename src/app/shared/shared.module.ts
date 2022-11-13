@@ -7,6 +7,8 @@ import { RouterModule } from "@angular/router";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import * as shared from "./index";
 import { SpinnerComponent } from './spinner/spinner.component';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,10 +21,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
   exports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
     RouterModule,
     ...shared.components,
   ],
+  providers: [UserService],
   entryComponents: [],
 })
 export class SharedModule {}
